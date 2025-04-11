@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Luna-1.11", "Luna-1.11\Luna-1.11.vcxproj", "{86B83FC9-9D86-449C-8F91-57F2B7471494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86B83FC9-9D86-449C-8F91-57F2B7471494}.Release|x64.ActiveCfg = Release|x64
+		{86B83FC9-9D86-449C-8F91-57F2B7471494}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {503C04C8-39B5-4AA6-A216-2919F7918313}
+	EndGlobalSection
+EndGlobal

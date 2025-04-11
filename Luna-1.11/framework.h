@@ -20,16 +20,10 @@ using namespace SDK;
 using namespace Params;
 using namespace std;
 
-typedef void HaukTuah;
-typedef AFortPlayerControllerAthena* ControllerNigga;
-typedef AFortPlayerPawnAthena* PawnNigga;
-typedef AFortPlayerStateAthena* PlayerStateNigga;
-
 inline std::ofstream GameLog("Luna.log");
 
 #include "memcury.h"
 #include "MinHook.h"
-
 
 inline bool bUseGuiLowTaperFade = true;
 

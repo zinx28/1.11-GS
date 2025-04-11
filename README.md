@@ -1,6 +1,6 @@
 # 1.11-GS
 
-- This gs was mostly made for luna 1.11
+- This gs was made for luna 1.11
 
 # Contributions (cant be crediting my self for everything)
 - [Syphon](https://github.com/Syphonfr) ~ (Small things)

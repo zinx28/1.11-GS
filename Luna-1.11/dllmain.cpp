@@ -28,6 +28,23 @@ DWORD WINAPI Main(LPVOID) {
     MH_Initialize();
     Sleep(5000);
 
+    Abilities::GiveAbility = decltype(Abilities::GiveAbility)(ImageBase + 0x2C7BDC0);
+    Abilities::InternalTryActivateAbility = decltype(Abilities::InternalTryActivateAbility)(ImageBase + 0x2C7D040);
+
+    Driver::CallPreReplication = decltype(Driver::CallPreReplication)(ImageBase + 0x1761700);
+    Driver::CreateChannel = decltype(Driver::CreateChannel)(ImageBase + 0x1AD6A60);
+    Driver::SetChannelActor = decltype(Driver::SetChannelActor)(ImageBase + 0x1970310);
+    Driver::IsNetRelevantFor = decltype(Driver::IsNetRelevantFor)(ImageBase + 0x1775200);
+    Driver::CloseActorChannel = decltype(Driver::CloseActorChannel)(ImageBase + 0x1953080);
+    Driver::SendClientAdjustment = decltype(Driver::SendClientAdjustment)(ImageBase + 0x1BE16B0);
+    Driver::ReplicateActor = decltype(Driver::ReplicateActor)(ImageBase + 0x196B970);
+
+    GameMode::CreateNetDriver = decltype(GameMode::CreateNetDriver)(ImageBase + 0x1D0CB60);
+    GameMode::InitListen = decltype(GameMode::InitListen)(ImageBase + 0x2A72B50);
+    GameMode::SetWorld = decltype(GameMode::SetWorld)(ImageBase + 0x1AEFA50);
+
+    Player::ReplaceBuildingActor = decltype(Player::ReplaceBuildingActor)(ImageBase + 0x4BD510);
+    Player::FindCurve = decltype(Player::FindCurve)(ImageBase + 0x2E21D0);
 
     if (bLogVerbose) {
         UKismetSystemLibrary::ExecuteConsoleCommand(UWorld::GetWorld(), L"log LogAbilitySystemComponent VeryVerbose", nullptr);
@@ -54,25 +71,25 @@ DWORD WINAPI Main(LPVOID) {
     MH_CreateHook(LPVOID(ImageBase + 0x2e72550), DispatchRequestHook, (void**)&DispatchRequestOG);
     MH_CreateHook(LPVOID(ImageBase + 0x1779C60), ActorProcEvent_Hk, (void**)&ActorProcEvent);
     MH_CreateHook(LPVOID(ImageBase + Offsets::ProcessEvent), ProcEvent_Hk, (void**)&ProcEvent);
-    MH_CreateHook(LPVOID(ImageBase + 0x9D0C50), OnDamageServer, (void**)&OnDamageServer_OG);
-    MH_CreateHook(LPVOID(ImageBase + 0x5DF2A0), ApplyHomeBaseEffectsOnPlayerSetup, (void**)&ApplyHomeBaseEffectsOnPlayerSetup_OG);
-    MH_CreateHook(LPVOID(ImageBase + 0xAE0A20), ClientOnPawnDied, (void**)&ClientOnPawnDied_OG);
-    MH_CreateHook(LPVOID(ImageBase + 0x6D6BE0), OnPickupComplete, (void**)&OnPickupComplete_OG);
+    MH_CreateHook(LPVOID(ImageBase + 0x9D0C50), Player::OnDamageServer, (void**)&Player::OnDamageServer_OG);
+    MH_CreateHook(LPVOID(ImageBase + 0x5DF2A0), Player::ApplyHomeBaseEffectsOnPlayerSetup, (void**)&Player::ApplyHomeBaseEffectsOnPlayerSetup_OG);
+    MH_CreateHook(LPVOID(ImageBase + 0xAE0A20), Player::ClientOnPawnDied, (void**)&Player::ClientOnPawnDied_OG);
+    MH_CreateHook(LPVOID(ImageBase + 0x6D6BE0), Player::OnPickupComplete, (void**)&Player::OnPickupComplete_OG);
 
   
 
-    VirtualHook(AFortPlayerPawnAthena::GetDefaultObj()->VTable, 0x182, ServerHandlePickup, nullptr);
-    VirtualHook(AFortQuickBars::GetDefaultObj()->VTable, 0xBF, ServerSwapItemsInternal, (void**)&OriginalServerSwapItemsInternal);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1ED, ServerSpawnInventoryDrop, nullptr);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x228, ServerAttemptInteract, (void**)&OGServerAttemptInteract);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x232, ServerReturnToMainMenu, nullptr);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1F9, ServerEditBuildingActor, nullptr);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1FD, ServerBeginEditingBuildingActor, nullptr);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1FB, ServerEndEditingBuildingActor, nullptr);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1F7, ServerCreateBuildingActor, nullptr);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1F3, ServerRepairBuildingActor, nullptr);
-    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1AD, ServerPlayEmoteItem, nullptr);
-    VirtualHook(AFortTrapTool::GetDefaultObj()->VTable, 0x126, ServerSpawnDeco, (void**)&OrginalServerSpawnDeco); // TRap tool stop joknking it
+    VirtualHook(AFortPlayerPawnAthena::GetDefaultObj()->VTable, 0x182, Player::ServerHandlePickup, nullptr);
+    VirtualHook(AFortQuickBars::GetDefaultObj()->VTable, 0xBF, Player::ServerSwapItemsInternal, (void**)&Player::OriginalServerSwapItemsInternal);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1ED, Player::ServerSpawnInventoryDrop, nullptr);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x228, Player::ServerAttemptInteract, (void**)&Player::OGServerAttemptInteract);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x232, Player::ServerReturnToMainMenu, nullptr);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1F9, Player::ServerEditBuildingActor, nullptr);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1FD, Player::ServerBeginEditingBuildingActor, nullptr);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1FB, Player::ServerEndEditingBuildingActor, nullptr);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1F7, Player::ServerCreateBuildingActor, nullptr);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1F3, Player::ServerRepairBuildingActor, nullptr);
+    VirtualHook(AFortPlayerControllerAthena::GetDefaultObj()->VTable, 0x1AD, Player::ServerPlayEmoteItem, nullptr);
+    VirtualHook(AFortTrapTool::GetDefaultObj()->VTable, 0x126, Player::ServerSpawnDeco, (void**)&Player::OrginalServerSpawnDeco); // TRap tool stop joknking it
     // ^^ it isnt decotool but fortraptool
 
     
@@ -80,7 +97,7 @@ DWORD WINAPI Main(LPVOID) {
     // this instead jumping?!?! pretty sure thats where fortnite normally clears or smth
     //7FF7 65BE 8DA0 ~ 448DA0
     //44CD90 - startaircraftphase
-    MH_CreateHook(LPVOID(ImageBase + 0x448DA0), AirCraftStartPhase, (void**)&OrginalAirCraftStartPhase);
+    MH_CreateHook(LPVOID(ImageBase + 0x448DA0), Player::AirCraftStartPhase, (void**)&Player::OrginalAirCraftStartPhase);
 
     //7FF766167B40 ~ 9C7B40
     MH_CreateHook(LPVOID(ImageBase + 0x9C7B40), ReloadCost, (void**)&OGReloadCost);
@@ -88,14 +105,14 @@ DWORD WINAPI Main(LPVOID) {
     //7FF76628D2A0 ~ AED2A0
     MH_CreateHook(LPVOID(ImageBase + 0xAED2A0), NetMulticast_Athena_BatchedDamageCues, (void**)&OGNetMulticast_Athena_BatchedDamageCues);
 
-    HookFunction(AFortPlayerControllerAthena::StaticClass(), UObject::FindObjectInclude<UFunction>("ServerExecuteInventoryItem"), ServerExecuteInventoryItem, nullptr);
-    HookFunction(AFortPlayerControllerAthena::StaticClass(), UObject::FindObjectInclude<UFunction>("ServerLoadingScreenDropped"), ServerLoadingScreenDropped_Hook, nullptr);
+    HookFunction(AFortPlayerControllerAthena::StaticClass(), UObject::FindObjectInclude<UFunction>("ServerExecuteInventoryItem"), Player::ServerExecuteInventoryItem, nullptr);
+    HookFunction(AFortPlayerControllerAthena::StaticClass(), UObject::FindObjectInclude<UFunction>("ServerLoadingScreenDropped"), Player::ServerLoadingScreenDropped_Hook, nullptr);
 
     HookFunction(AFortPlayerPawnAthena::StaticClass(), UObject::FindObjectInclude<UFunction>("ServerChoosePart"), rettrue, nullptr);
 
-    HookFunction(UAbilitySystemComponent::StaticClass(), UObject::FindObject<UFunction>("Function GameplayAbilities.AbilitySystemComponent.ServerTryActivateAbility"), ServerTryActivateAbilityHook, nullptr);
-    HookFunction(UFortAbilitySystemComponent::StaticClass(), UObject::FindObject<UFunction>("Function GameplayAbilities.AbilitySystemComponent.ServerTryActivateAbility"), ServerTryActivateAbilityHook, nullptr);
-    HookFunction(UFortAbilitySystemComponentAthena::StaticClass(), UObject::FindObject<UFunction>("Function GameplayAbilities.AbilitySystemComponent.ServerTryActivateAbility"), ServerTryActivateAbilityHook, nullptr);
+    HookFunction(UAbilitySystemComponent::StaticClass(), UObject::FindObject<UFunction>("Function GameplayAbilities.AbilitySystemComponent.ServerTryActivateAbility"), Abilities::ServerTryActivateAbilityHook, nullptr);
+    HookFunction(UFortAbilitySystemComponent::StaticClass(), UObject::FindObject<UFunction>("Function GameplayAbilities.AbilitySystemComponent.ServerTryActivateAbility"), Abilities::ServerTryActivateAbilityHook, nullptr);
+    HookFunction(UFortAbilitySystemComponentAthena::StaticClass(), UObject::FindObject<UFunction>("Function GameplayAbilities.AbilitySystemComponent.ServerTryActivateAbility"), Abilities::ServerTryActivateAbilityHook, nullptr);
 
     HookFunction(AFortGameModeAthena::StaticClass(), UObject::FindObjectInclude<UFunction>("HandleStartingNewPlayer"), GameMode::HandleStartingNewPlayer, (void**)&GameMode::HandleStartingNewPlayer_OG);
 
@@ -103,8 +120,7 @@ DWORD WINAPI Main(LPVOID) {
 
     HookFunction(AFortGameModeAthena::StaticClass(), UObject::FindObject<UFunction>("Function Engine.GameMode.ReadyToStartMatch"), GameMode::ReadyToStartMatch, (void**)&GameMode::ReadyToStartMatch_OG);
 
-    // this is such a troll moment ~ we just need to load it once
-    GetResourceItemDef(EFortResourceType::None);
+    Player::GetResourceItemDef(EFortResourceType::None);
 
     uintptr_t GIsClientAddr = (ImageBase + 0x5BAA38F);
     *(bool*)GIsClientAddr = false;

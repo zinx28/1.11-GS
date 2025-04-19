@@ -112,12 +112,17 @@
     <ClCompile Include="Imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="Imgui\imgui_tables.cpp" />
     <ClCompile Include="Imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Server\Private\Abilities.cpp" />
+    <ClCompile Include="Server\Private\Driver.cpp" />
+    <ClCompile Include="Server\Private\GameMode.cpp" />
+    <ClCompile Include="Server\Private\Inventory.cpp" />
     <ClCompile Include="Server\Private\Log.cpp" />
     <ClCompile Include="SDK\SDK\Basic.cpp" />
     <ClCompile Include="SDK\SDK\CoreUObject_functions.cpp" />
     <ClCompile Include="SDK\SDK\Engine_functions.cpp" />
     <ClCompile Include="SDK\SDK\FortniteGame_functions.cpp" />
     <ClCompile Include="SDK\SDK\GameplayAbilities_functions.cpp" />
+    <ClCompile Include="Server\Private\Player.cpp" />
     <ClCompile Include="Server\Public\Driver.h" />
     <ClCompile Include="Server\Private\Looting.cpp" />
   </ItemGroup>

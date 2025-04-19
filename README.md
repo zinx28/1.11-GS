@@ -2,6 +2,11 @@
 
 - This gs was made for luna 1.11
 
+## Note
+- Working replication with big issues
+- Inventory need fixing (small issues)
+- Searching on floor
+
 # Contributions (cant be crediting my self for everything)
 - [Syphon](https://github.com/Syphonfr) ~ (Small things)
 - [Wiks](https://github.com/wiktorwiktor11) ~ (Small things, pretty sure it was reverted)

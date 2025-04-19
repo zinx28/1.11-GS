@@ -1,7 +1,7 @@
 #pragma once
 
 // idk what to put this under without player.h being over loaded
-
+#include "Inventory.h"
 
 void (*OGReloadCost)(AFortWeapon* a1, int a2);
 void ReloadCost(AFortWeapon* a1, int a2) {

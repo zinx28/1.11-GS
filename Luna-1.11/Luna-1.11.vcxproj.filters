@@ -18,25 +18,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="Server\framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="memcury.h">
+    <ClInclude Include="Server\memcury.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MinHook.h">
+    <ClInclude Include="Server\MinHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Server\GameMode.h">
+    <ClInclude Include="Server\Public\GameMode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Server\Inventory.h">
+    <ClInclude Include="Server\Public\Inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Server\Abilities.h">
+    <ClInclude Include="Server\Public\Abilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Server\Player.h">
+    <ClInclude Include="Server\Public\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\PropertyFixup.hpp">
@@ -48,19 +48,19 @@
     <ClInclude Include="SDK\SDK.hpp">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="Server\Object.h">
+    <ClInclude Include="Server\Public\Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Server\Looting.h">
+    <ClInclude Include="Server\Public\Looting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Log.h">
+    <ClInclude Include="Server\Public\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Miscs.h">
+    <ClInclude Include="Server\Public\Miscs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Gui.h">
+    <ClInclude Include="Server\Public\Gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Server\Driver.h">
+    <ClCompile Include="Server\Public\Driver.h">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="SDK\SDK\GameplayAbilities_functions.cpp">
@@ -86,10 +86,10 @@
     <ClCompile Include="SDK\SDK\Basic.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="Server\Looting.cpp">
+    <ClCompile Include="Server\Private\Looting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Log.cpp">
+    <ClCompile Include="Server\Private\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Imgui\imgui_widgets.cpp">

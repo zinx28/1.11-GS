@@ -1,4 +1,4 @@
-#include "Log.h"
+#include "../Public/Log.h"
 
 #include <Windows.h>
 #include <iostream>

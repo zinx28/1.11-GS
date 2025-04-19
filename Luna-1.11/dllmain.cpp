@@ -1,13 +1,13 @@
-#include "framework.h"
+#include "./Server/framework.h"
 
-#include "Server/Driver.h"
-#include "Server/GameMode.h"
-#include "Server/Abilities.h"
-#include "Server/Player.h"
-#include "Server/Object.h"
-#include "Miscs.h"
+#include "Server/Public/Driver.h"
+#include "Server/Public/GameMode.h"
+#include "Server/Public/Abilities.h"
+#include "Server/Public/Player.h"
+#include "Server/Public/Object.h"
+#include "Server/Public/Miscs.h"
 
-#include "Gui.h"
+#include "Server/Public/Gui.h"
 
 static __int64 (*DispatchRequestOG)(UMcpProfileGroup* a1, void*);
 

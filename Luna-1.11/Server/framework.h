@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <fstream>
 #include <iostream>
-#include "Log.h"
+#include "./Public/Log.h"
 #include <vector>
 #include <memory>
 #include <codecvt>
@@ -12,10 +12,10 @@ static bool bLogVerbose = true;
 static bool bMCP = false;
 
 //Program Specific Files
-#include "SDK/SDK.hpp"
-#include "SDK/SDK/FortniteGame_parameters.hpp"
-#include "SDK/SDK/Engine_parameters.hpp"
-#include "SDK/SDK/CoreUObject_parameters.hpp"
+#include "../SDK/SDK.hpp"
+#include "../SDK/SDK/FortniteGame_parameters.hpp"
+#include "../SDK/SDK/Engine_parameters.hpp"
+#include "../SDK/SDK/CoreUObject_parameters.hpp"
 using namespace SDK;
 using namespace Params;
 using namespace std;

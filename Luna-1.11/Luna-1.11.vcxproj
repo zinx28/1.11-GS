@@ -87,21 +87,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="Gui.h" />
-    <ClInclude Include="Log.h" />
-    <ClInclude Include="memcury.h" />
-    <ClInclude Include="MinHook.h" />
-    <ClInclude Include="Miscs.h" />
+    <ClInclude Include="Server\framework.h" />
+    <ClInclude Include="Server\Public\Gui.h" />
+    <ClInclude Include="Server\Public\Log.h" />
+    <ClInclude Include="Server\memcury.h" />
+    <ClInclude Include="Server\MinHook.h" />
+    <ClInclude Include="Server\Public\Miscs.h" />
     <ClInclude Include="SDK\PropertyFixup.hpp" />
     <ClInclude Include="SDK\SDK.hpp" />
     <ClInclude Include="SDK\UnrealContainers.hpp" />
-    <ClInclude Include="Server\Abilities.h" />
-    <ClInclude Include="Server\GameMode.h" />
-    <ClInclude Include="Server\Inventory.h" />
-    <ClInclude Include="Server\Looting.h" />
-    <ClInclude Include="Server\Object.h" />
-    <ClInclude Include="Server\Player.h" />
+    <ClInclude Include="Server\Public\Abilities.h" />
+    <ClInclude Include="Server\Public\GameMode.h" />
+    <ClInclude Include="Server\Public\Inventory.h" />
+    <ClInclude Include="Server\Public\Looting.h" />
+    <ClInclude Include="Server\Public\Object.h" />
+    <ClInclude Include="Server\Public\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -112,14 +112,14 @@
     <ClCompile Include="Imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="Imgui\imgui_tables.cpp" />
     <ClCompile Include="Imgui\imgui_widgets.cpp" />
-    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Server\Private\Log.cpp" />
     <ClCompile Include="SDK\SDK\Basic.cpp" />
     <ClCompile Include="SDK\SDK\CoreUObject_functions.cpp" />
     <ClCompile Include="SDK\SDK\Engine_functions.cpp" />
     <ClCompile Include="SDK\SDK\FortniteGame_functions.cpp" />
     <ClCompile Include="SDK\SDK\GameplayAbilities_functions.cpp" />
-    <ClCompile Include="Server\Driver.h" />
-    <ClCompile Include="Server\Looting.cpp" />
+    <ClCompile Include="Server\Public\Driver.h" />
+    <ClCompile Include="Server\Private\Looting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SDK\NameCollisions.inl" />

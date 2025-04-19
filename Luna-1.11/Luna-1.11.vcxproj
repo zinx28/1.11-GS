@@ -44,6 +44,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>../lib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -83,19 +86,17 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>minhook.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\lib\SDK\PropertyFixup.hpp" />
+    <ClInclude Include="..\lib\SDK\SDK.hpp" />
+    <ClInclude Include="..\lib\SDK\UnrealContainers.hpp" />
     <ClInclude Include="Server\framework.h" />
     <ClInclude Include="Server\Public\Gui.h" />
     <ClInclude Include="Server\Public\Log.h" />
-    <ClInclude Include="Server\memcury.h" />
-    <ClInclude Include="Server\MinHook.h" />
     <ClInclude Include="Server\Public\Miscs.h" />
-    <ClInclude Include="SDK\PropertyFixup.hpp" />
-    <ClInclude Include="SDK\SDK.hpp" />
-    <ClInclude Include="SDK\UnrealContainers.hpp" />
     <ClInclude Include="Server\Public\Abilities.h" />
     <ClInclude Include="Server\Public\GameMode.h" />
     <ClInclude Include="Server\Public\Inventory.h" />
@@ -104,33 +105,33 @@
     <ClInclude Include="Server\Public\Player.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\Imgui\imgui.cpp" />
+    <ClCompile Include="..\lib\Imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\lib\Imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\lib\Imgui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="..\lib\Imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="..\lib\Imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\lib\Imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\lib\SDK\SDK\Basic.cpp" />
+    <ClCompile Include="..\lib\SDK\SDK\CoreUObject_functions.cpp" />
+    <ClCompile Include="..\lib\SDK\SDK\Engine_functions.cpp" />
+    <ClCompile Include="..\lib\SDK\SDK\FortniteGame_functions.cpp" />
+    <ClCompile Include="..\lib\SDK\SDK\GameplayAbilities_functions.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="Imgui\imgui.cpp" />
-    <ClCompile Include="Imgui\imgui_demo.cpp" />
-    <ClCompile Include="Imgui\imgui_draw.cpp" />
-    <ClCompile Include="Imgui\imgui_impl_dx9.cpp" />
-    <ClCompile Include="Imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="Imgui\imgui_tables.cpp" />
-    <ClCompile Include="Imgui\imgui_widgets.cpp" />
     <ClCompile Include="Server\Private\Abilities.cpp" />
     <ClCompile Include="Server\Private\Driver.cpp" />
     <ClCompile Include="Server\Private\GameMode.cpp" />
     <ClCompile Include="Server\Private\Inventory.cpp" />
     <ClCompile Include="Server\Private\Log.cpp" />
-    <ClCompile Include="SDK\SDK\Basic.cpp" />
-    <ClCompile Include="SDK\SDK\CoreUObject_functions.cpp" />
-    <ClCompile Include="SDK\SDK\Engine_functions.cpp" />
-    <ClCompile Include="SDK\SDK\FortniteGame_functions.cpp" />
-    <ClCompile Include="SDK\SDK\GameplayAbilities_functions.cpp" />
     <ClCompile Include="Server\Private\Player.cpp" />
     <ClCompile Include="Server\Public\Driver.h" />
     <ClCompile Include="Server\Private\Looting.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SDK\NameCollisions.inl" />
+    <Library Include="..\lib\minhook.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="minhook.lib" />
+    <None Include="..\lib\SDK\NameCollisions.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

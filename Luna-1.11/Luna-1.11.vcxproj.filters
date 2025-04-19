@@ -21,12 +21,6 @@
     <ClInclude Include="Server\framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Server\memcury.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Server\MinHook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Server\Public\GameMode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -38,15 +32,6 @@
     </ClInclude>
     <ClInclude Include="Server\Public\Player.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\PropertyFixup.hpp">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\UnrealContainers.hpp">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\SDK.hpp">
-      <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="Server\Public\Object.h">
       <Filter>Header Files</Filter>
@@ -63,6 +48,15 @@
     <ClInclude Include="Server\Public\Gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\lib\SDK\PropertyFixup.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\SDK\SDK.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\SDK\UnrealContainers.hpp">
+      <Filter>SDK</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -71,47 +65,11 @@
     <ClCompile Include="Server\Public\Driver.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\SDK\GameplayAbilities_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\SDK\FortniteGame_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\SDK\Engine_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\SDK\CoreUObject_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\SDK\Basic.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
     <ClCompile Include="Server\Private\Looting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Server\Private\Log.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Imgui\imgui_widgets.cpp">
-      <Filter>Source Files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Imgui\imgui_demo.cpp">
-      <Filter>Source Files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Imgui\imgui_draw.cpp">
-      <Filter>Source Files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Imgui\imgui_impl_dx9.cpp">
-      <Filter>Source Files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Imgui\imgui_impl_win32.cpp">
-      <Filter>Source Files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Imgui\imgui_tables.cpp">
-      <Filter>Source Files\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="Imgui\imgui.cpp">
-      <Filter>Source Files\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Server\Private\Abilities.cpp">
       <Filter>Source Files</Filter>
@@ -128,15 +86,51 @@
     <ClCompile Include="Server\Private\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SDK\NameCollisions.inl">
+    <ClCompile Include="..\lib\Imgui\imgui_draw.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Imgui\imgui_impl_dx9.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Imgui\imgui_impl_win32.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Imgui\imgui_tables.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Imgui\imgui_widgets.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Imgui\imgui.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Imgui\imgui_demo.cpp">
+      <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\SDK\SDK\Basic.cpp">
       <Filter>SDK</Filter>
-    </None>
+    </ClCompile>
+    <ClCompile Include="..\lib\SDK\SDK\CoreUObject_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\SDK\SDK\Engine_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\SDK\SDK\FortniteGame_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\SDK\SDK\GameplayAbilities_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="minhook.lib">
+    <Library Include="..\lib\minhook.lib">
       <Filter>Source Files</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\lib\SDK\NameCollisions.inl">
+      <Filter>SDK</Filter>
+    </None>
   </ItemGroup>
 </Project>
